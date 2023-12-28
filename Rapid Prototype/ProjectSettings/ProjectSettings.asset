@@ -153,7 +153,8 @@ PlayerSettings:
   resetResolutionOnWindowResize: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Android: com.DefaultCompany.RapidPrototype
   buildNumber:
     Bratwurst: 0
     Standalone: 0
@@ -958,7 +959,7 @@ PlayerSettings:
     Purchasing: 0
     UDP: 0
     UNet: 1
-    Unity Ads: 0
+    Unity Ads: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -978,10 +979,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 7a74ef6b-72f3-49ba-bf62-6a9b0bd30946
+  cloudProjectId: cde2963e-715c-4c2e-b4d6-fb6df100e5cb
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Rapid Prototype
+  projectName: Mobile Game Final
   organizationId: tom_obrien
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

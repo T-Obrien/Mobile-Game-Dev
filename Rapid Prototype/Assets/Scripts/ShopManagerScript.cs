@@ -217,6 +217,15 @@ public class ShopManagerScript : MonoBehaviour
                 case 2:
                     ic.cost = 15;
                     break;
+                case 3:
+                    ic.cost = 30;
+                    break;
+                case 4:
+                    ic.cost = 45;
+                    break;
+                case 5:
+                    ic.cost = 60;
+                    break;
             }
 
             if (df.whichMesh == itemEquipped) equippedText.SetActive(true);

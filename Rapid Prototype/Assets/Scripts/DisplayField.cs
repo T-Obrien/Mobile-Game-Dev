@@ -10,6 +10,9 @@ public class DisplayField : MonoBehaviour
     public Mesh currentMesh;
     public Mesh mesh1;
     public Mesh mesh2;
+    public Mesh mesh3;
+    public Mesh mesh4;
+    public Mesh mesh5;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,15 @@ public class DisplayField : MonoBehaviour
                 break;
             case 2:
                 mf.mesh = mesh2;
+                break;
+            case 3:
+                mf.mesh = mesh3;
+                break;
+            case 4:
+                mf.mesh = mesh4;
+                break;
+            case 5:
+                mf.mesh = mesh5;
                 break;
         }
     }
