@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class ShopManagerScript : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class ShopManagerScript : MonoBehaviour
     Scoreboard sb;
     public GameObject pointsPer;
     TextMeshProUGUI ppt;
+    public GameObject ballCamera;
+    GetWebcamTexture gwct;
+    public GameObject CameraButton;
+
 
     
     public int itemEquipped;
@@ -37,11 +42,14 @@ public class ShopManagerScript : MonoBehaviour
         priceBoard.SetActive(false);
         equippedText.SetActive(false);
         pointsPer.SetActive(false);
+        ballCamera.SetActive(false);
+        CameraButton.SetActive(false);
         db = displayBall.GetComponent<DisplayBall>();
         df = displayField.GetComponent<DisplayField>();
         ic = priceBoard.GetComponent<ItemCost>();
         sb = scoreboard.GetComponent<Scoreboard>();
         ppt = pointsPer.GetComponent<TextMeshProUGUI>();
+        gwct = ballCamera.GetComponent<GetWebcamTexture>();
 
         chosenBall = PlayerPrefs.GetInt("chosenBall");
         switch (chosenBall)
@@ -54,6 +62,9 @@ public class ShopManagerScript : MonoBehaviour
                 break;
             case 3:
                 db.currentMat = db.mat3;
+                break;
+            case 4:
+                db.currentMat = db.mat4;
                 break;
         }
 
@@ -81,7 +92,6 @@ public class ShopManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(df.whichMesh);
         DisplayCost();
     }
 
@@ -105,6 +115,10 @@ public class ShopManagerScript : MonoBehaviour
         if (db.currentMat == db.mat3)
         {
             db.whichMat = 3;
+        }
+        if (db.currentMat == db.mat4)
+        {
+            db.whichMat = 4;
         }
         itemEquipped = db.whichMat;
     }
@@ -144,6 +158,8 @@ public class ShopManagerScript : MonoBehaviour
         priceBoard.SetActive(false);
         equippedText.SetActive(false);
         pointsPer.SetActive(false);
+        ballCamera.SetActive(false);
+        CameraButton.SetActive(false);
     }
 
     public void RightSelect()
@@ -153,7 +169,7 @@ public class ShopManagerScript : MonoBehaviour
             df.whichMesh += 1;
         }
 
-        if (BallCanvas.activeSelf == true && db.whichMat < 3)
+        if (BallCanvas.activeSelf == true && db.whichMat < 4)
         {
             db.whichMat += 1;
         }
@@ -225,6 +241,10 @@ public class ShopManagerScript : MonoBehaviour
                         db.currentMat = db.mat3;
                         chosenBall = 3;
                         break;
+                    case 4:
+                        db.currentMat = db.mat4;
+                        chosenBall = 4;
+                        break;
                 }
                 itemEquipped = db.whichMat;
             }
@@ -233,6 +253,10 @@ public class ShopManagerScript : MonoBehaviour
 
     public void ExitButton()
     {
+        if (gwct.camTexture != null)
+        {
+            gwct.camTexture.Stop();
+        }
         PlayerPrefs.SetInt("chosenBall", chosenBall);
         PlayerPrefs.SetInt("chosenField", chosenField);
         SceneManager.LoadScene("GameScene");        
@@ -277,15 +301,28 @@ public class ShopManagerScript : MonoBehaviour
             switch (db.whichMat)
             {
                 case 0:
+                    ballCamera.SetActive(false);
+                    CameraButton.SetActive(false);
                     break;
                 case 1:
                     ic.cost = 0;
+                    ballCamera.SetActive(false);
+                    CameraButton.SetActive(false);
                     break;
                 case 2:
                     ic.cost = 5;
+                    ballCamera.SetActive(false);
+                    CameraButton.SetActive(false);
                     break;
                 case 3:
                     ic.cost = 20;
+                    ballCamera.SetActive(false);
+                    CameraButton.SetActive(false);
+                    break;
+                case 4:
+                    ic.cost = 40;
+                    ballCamera.SetActive(true);
+                    CameraButton.SetActive(true);
                     break;
             }
             if (db.whichMat == itemEquipped) equippedText.SetActive(true);

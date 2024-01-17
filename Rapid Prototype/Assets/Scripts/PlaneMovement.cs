@@ -84,7 +84,7 @@ public class PlaneMovement : MonoBehaviour
         rot.x = -Input.gyro.rotationRateUnbiased.x;
         //Debug.Log(transform.rotation.x);
 
-        if (((rot.x > 0 && transform.rotation.x < 0.15f) || (rot.x < 0 && transform.rotation.x > -0.15f)) && canMove == true)
+        if (((rot.x > 0 && transform.rotation.x < 0.3f) || (rot.x < 0 && transform.rotation.x > -0.3f)) && canMove == true)
         {
             transform.Rotate(rot / 5f);
         }

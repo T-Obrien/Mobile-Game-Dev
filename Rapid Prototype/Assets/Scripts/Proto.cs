@@ -9,6 +9,7 @@ public class Proto : MonoBehaviour
     public Material mat1;
     public Material mat2;
     public Material mat3;
+    public Material mat4;
     MeshRenderer mr;
     Vector2 touchStart;
     Vector2 touchEnd;
@@ -26,6 +27,10 @@ public class Proto : MonoBehaviour
         else if (chosenBall == 3)
         {
             mr.material = mat3;
+        }
+        else if (chosenBall == 4)
+        {
+            mr.material = mat4;
         }
         else
         {

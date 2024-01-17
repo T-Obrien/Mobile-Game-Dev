@@ -11,6 +11,7 @@ public class DisplayBall : MonoBehaviour
     public Material mat1;
     public Material mat2;
     public Material mat3;
+    public Material mat4;
     //public Material mat4;
     
 
@@ -40,9 +41,9 @@ public class DisplayBall : MonoBehaviour
             case 3:
                 mr.material = mat3;
                 break;
-            //case 4:
-            //    mr.material = mat4;
-            //    break;
+            case 4:
+                mr.material = mat4;
+                break;
         }
     }
 }

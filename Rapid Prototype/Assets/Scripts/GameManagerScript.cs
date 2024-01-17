@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour
 {
     public GameObject PauseCanvas;
+    public GameObject Playb;
+    public GameObject Shopb;
+    public GameObject Scoreb;
     public GameObject GameCanvas;
     public GameObject ShopCanvas;
     public GameObject ConstCanvas;
@@ -26,6 +29,10 @@ public class GameManagerScript : MonoBehaviour
         pm.canMove = false;
         bm = GameBall.GetComponent<Proto>();
         bm.canMove = false;
+
+        //Playb.GetComponent<RectTransform>().position = new Vector3(0f, 336.27f, 0f);
+        //Shopb.GetComponent<RectTransform>().position = new Vector3(0f, 118.3f, 0f);
+        //Scoreb.GetComponent<RectTransform>().position = new Vector3(-103.2f, -170.6f, -50f);
     }
 
     // Update is called once per frame
