@@ -7,6 +7,7 @@ public class Goal : MonoBehaviour
 {
     Scoreboard sb;
     public GameObject scoreBoard;
+    public PlaneMovement pm;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,8 @@ public class Goal : MonoBehaviour
         {
             Debug.Log("Score!");
             collision.transform.position = new Vector3(0.0f, -11.0f, 0.0f);
-            sb.score += 1;
+            sb.score += pm.fieldScore;
+            Handheld.Vibrate();
             //Scoreboard.SetText("Score: " + Score);
         }
     }
